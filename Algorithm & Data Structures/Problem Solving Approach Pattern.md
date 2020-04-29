@@ -1,4 +1,4 @@
-# Problem Solving Approach & Pattern
+# Problem Solving Approach 
 
 ## Introduction:
 
@@ -147,7 +147,7 @@ Simplify:
 2. Temporarily ignore that difficulty
 3. Write a simplified solution
 4. Then incorporate that difficulty back in
-
+```js
     //examples
     charCount("aaaa") // {a: 4}
     charCount("hello") // { h: 1, e: 1, l: 2, o: 1 } 
@@ -184,7 +184,7 @@ Simplify:
     //this solution does not account for alphanumeric check, 
     //example is assuming that we coded what we can 
     //and coming back to the problem we don't know
-
+```
 ---
 
 ## Look Back and Refactor
@@ -216,3 +216,5 @@ Ask these questions out loud when done!
             - you can learn a lot about how people solve
 
 ---
+
+# Problem Solving Pattern 
