@@ -1,34 +1,36 @@
 # Functions & Callbacks (& Higher Order Function)
 
 ## Key Takeaways
+
 - Functions, under the hood, are first class objects. Which is why they can be assigned to variables and properties of other objects
 - **Higher Order Function:** the outer function that accepts a function as a parameter
-    - Any function that takes in a function or returns a function is automatically a higher order function
+  - Any function that takes in a function or returns a function is automatically a higher order function
 - **Callback:** the function we insert as a parameter
 - Callbacks and Higher Order Functions Simplify our code and keep it DRY.
 
 ## Notes
 
 ### Generalized Functions
+
 - We have functions to make them reusable (DRY: Don't repeat yourself)
 - Parameters (placeholders) mean we don't need to decide what data to run our functionality on until we run the function
 - Higher order functions follow this same principle.
-    - We may not want to decide exactly what some of our functionality is until we run our function.
+  - We may not want to decide exactly what some of our functionality is until we run our function.
 
-### Repeating Functionality 
+### Repeating Functionality
 
 Example #1
-```javascript 
 
-function copyArrayAndMultiplyBy2(array){
-	const output = [];
-	for (let i = 0; i < array.length; i++){
-		output.push(array[i] * 2);
-	}
-	return output;
+```javascript
+function copyArrayAndMultiplyBy2(array) {
+  const output = [];
+  for (let i = 0; i < array.length; i++) {
+    output.push(array[i] * 2);
+  }
+  return output;
 }
 
-const myArray = [1,2,3];
+const myArray = [1, 2, 3];
 const result = copyArrayAndMultiplyBy2(myArray);
 
 /* 
@@ -55,41 +57,48 @@ const result = copyArrayAndMultiplyBy2(myArray);
     2. global()
 */
 ```
+
 - imagine having to repeat this for adding by 3 or dividing by 2
 - we can insert functionality to GENERALIZE our code.
 
 Example #2
+
 ```javascript
 // Example of generalizing the above code to make it more reusable
 
-function copyArrayAndManipulate(array, instructions){
-	const output = [];
-	for (let i = 0; i < array.length; i++){
-		output.push(instructions(array[i]));
-	}
-	return output;
+function copyArrayAndManipulate(array, instructions) {
+  const output = [];
+  for (let i = 0; i < array.length; i++) {
+    output.push(instructions(array[i]));
+  }
+  return output;
 }
 
-function multiplyBy2(input){ return input * 2 }
+function multiplyBy2(input) {
+  return input * 2;
+}
 
-const result = copyArrayAndManipulate([1,2,3], multiplyBy2);
+const result = copyArrayAndManipulate([1, 2, 3], multiplyBy2);
 ```
 
 ### Higher Order Function Examples
 
 Example #1
+
 ```javascript
-function copyArrayAndManipulate(array, instructions){
-	const output = [];
-	for (let i = 0; i < array.length; i++){
-		output.push(instructions(array[i]));
-	}
-	return output;
+function copyArrayAndManipulate(array, instructions) {
+  const output = [];
+  for (let i = 0; i < array.length; i++) {
+    output.push(instructions(array[i]));
+  }
+  return output;
 }
 
-function multiplyBy2(input){ return input * 2 }
+function multiplyBy2(input) {
+  return input * 2;
+}
 
-const result = copyArrayAndManipulate([1,2,3], multiplyBy2);
+const result = copyArrayAndManipulate([1, 2, 3], multiplyBy2);
 
 /* 
     // Global Execution Context:
@@ -129,12 +138,13 @@ const result = copyArrayAndManipulate([1,2,3], multiplyBy2);
 ```
 
 ### Callbacks & Higher Order Functions
+
 - Functions in javascript = first class objects
 - They can co-exist with and can be treated like any other javascript objs
 - Behind the scenes, functions are objects
-    1. assigned to variables and properties of other objects
-    2. passed as arguments into functions
-    3. returned as values from functions
+  1. assigned to variables and properties of other objects
+  2. passed as arguments into functions
+  3. returned as values from functions
 
 **The Higher Order Function:**
 
@@ -150,8 +160,10 @@ I.E: previous example
 - Callback: multiplyBy2
 
 #### Note on Arrow Functions
+
 Arrow functions - a shorthand way to save functions
 anonymous & arrow function:
+
 - improve immediate legibility of the code
 - syntactic sugar
 - understanding how they work under-the-hood is vital to avoid confusion
